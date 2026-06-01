@@ -38,7 +38,8 @@ fi
 if [ -e "$VENV/Scripts/python.exe" ]; then VPY="$VENV/Scripts/python.exe"; else VPY="$VENV/bin/python"; fi
 "$VPY" -m pip install --upgrade pip >/dev/null
 # pandas+openpyxl: xlsx/csv; xlrd: legacy .xls; python-docx: Word; pypdf: PDF text; tabulate: markdown tables
-"$VPY" -m pip install pandas openpyxl xlrd python-docx pypdf tabulate
+# markdownify: HTML-to-Markdown for Jira XML export descriptions/comments
+"$VPY" -m pip install pandas openpyxl xlrd python-docx pypdf tabulate markdownify
 
 echo
 echo "Setup complete."

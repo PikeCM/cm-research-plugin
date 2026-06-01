@@ -12,6 +12,16 @@ Pull Jira issues into the project's Obsidian workspace as Markdown notes, using 
 
 When the user wants Jira tickets in their research workspace, by project, board, sprint, JQL query, or specific keys.
 
+There are two ingestion paths:
+- **Live connector** (default): pull from Jira directly via the Atlassian MCP connector (below).
+- **XML/RSS export file**: if the user has a Jira XML export (the RSS-format export of a filter or search), convert it offline, no connector needed:
+
+```bash
+python "${CLAUDE_PLUGIN_ROOT}/scripts/jira_xml_to_md.py" "<export.xml>" "<output dir>" "<research project name>"
+```
+
+This writes one `<ISSUE-KEY>.md` per issue with frontmatter and wikilinks (parent, subtasks, linked issues). It uses the conversion toolchain; run `setup-toolchain.sh` first (it installs `markdownify` for the HTML descriptions and comments).
+
 ## No local toolchain needed
 
 This skill uses the Atlassian MCP connector, not local scripts or custom API code. If the connector is not authenticated, ask the user to authenticate it first. Request only the access needed (read).
