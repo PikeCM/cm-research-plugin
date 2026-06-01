@@ -9,7 +9,7 @@ Ingest project sources into an Obsidian workspace and generate structured resear
    - `ingest-jira` for Jira tickets (via the Atlassian MCP connector)
    - `ingest-slack` for Slack channels/threads (via the Slack MCP connector)
    - `ingest-granola` for Granola meeting notes (via the Granola MCP connector)
-2. **Generate research** with `generate-research`, which synthesizes the source notes into `<project>/<project> - Research.md` using a standard template.
+2. **Generate research** with `generate-research`, which synthesizes the source notes, plus any prior research in `<project>/Research/` (treated as a derived datapoint), into `<project>/Research/<topic> - Research.md` using a standard template.
 
 Notes carry frontmatter (source type, origin, ingest date) and cross-link with `[[wikilinks]]` so the workspace is navigable in Obsidian.
 

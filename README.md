@@ -12,7 +12,7 @@ Build a local, Obsidian-based research workspace for a project. Ingest source ma
 - **ingest-jira** - pull Jira tickets via the Atlassian MCP connector into Markdown notes.
 - **ingest-slack** - pull Slack channels/threads via the Slack MCP connector into Markdown notes.
 - **ingest-granola** - search Granola meeting notes via the Granola MCP connector and pull them into Markdown notes.
-- **generate-research** - synthesize the ingested notes into a research document using a standard template.
+- **generate-research** - synthesize the ingested notes into a research document using a standard template, also reusing prior research notes as derived datapoints.
 
 ### Why Markdown
 Obsidian only displays a fixed set of file types by default (Markdown, images, audio, video, PDF). Converting docs and spreadsheets to Markdown makes them first-class in the vault: visible, searchable, and linkable with `[[wikilinks]]`.
@@ -32,8 +32,11 @@ Each project gets one workspace folder under the output root:
 <output root>/<project name>/
   Sources/
     <ingested source notes>.md
-  <project name> - Research.md
+  Research/
+    <topic> - Research.md
 ```
+
+Research notes also read prior research in `Research/` as a derived (second-order) input, so research compounds over time without treating prior inferences as primary fact.
 
 The output root resolves as: an explicit path in the request, then the `CM_RESEARCH_OUTPUT_ROOT` environment variable, then a fallback the skill confirms with you. Set a personal default in your Claude Code settings `env` block:
 

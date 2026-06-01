@@ -20,7 +20,10 @@ What was ingested and what each source covers.
 
 | Source note | Type | Covers | Notes |
 |-------------|------|--------|-------|
-| [[<note>]] | document / spreadsheet / jira | | |
+| [[<note>]] | document / spreadsheet / jira / slack / granola | | |
+
+**Prior research consulted** (derived, second-order):
+- [[<prior research note>]] - what was carried forward, and any of its open questions still unresolved
 
 ## 3. Background and Context
 The situation the project addresses, drawn from the sources.
