@@ -51,19 +51,27 @@ def yesc(s: str) -> str:
 
 
 def main() -> int:
-    if len(sys.argv) < 3:
-        print("usage: jira_xml_to_md.py <input.xml> <output_dir> [research_project]", file=sys.stderr)
+    argv = sys.argv[1:]
+    skip_existing = "--skip-existing" in argv
+    pos = [a for a in argv if not a.startswith("--")]
+    if len(pos) < 2:
+        print("usage: jira_xml_to_md.py <input.xml> <output_dir> [research_project] [--skip-existing]", file=sys.stderr)
         return 2
-    src, outdir = sys.argv[1], sys.argv[2]
-    research_project = sys.argv[3] if len(sys.argv) > 3 else "Project"
+    src, outdir = pos[0], pos[1]
+    research_project = pos[2] if len(pos) > 2 else "Project"
     os.makedirs(outdir, exist_ok=True)
 
     root = ET.parse(src).getroot()
     items = root.findall(".//item")
     written = 0
+    skipped = 0
     for it in items:
         key = text(it.find("key"))
         if not key:
+            continue
+        out_path = os.path.join(outdir, f"{key}.md")
+        if skip_existing and os.path.exists(out_path):
+            skipped += 1
             continue
         summary = text(it.find("summary")) or text(it.find("title"))
         link = text(it.find("link"))
@@ -156,11 +164,14 @@ def main() -> int:
             body += ["## Links", ""] + link_lines + [""]
 
         content = "\n".join(fm) + "\n".join(body).rstrip() + "\n"
-        with open(os.path.join(outdir, f"{key}.md"), "w", encoding="utf-8") as f:
+        with open(out_path, "w", encoding="utf-8") as f:
             f.write(content)
         written += 1
 
-    print(f"Wrote {written} ticket notes to {outdir}")
+    msg = f"Wrote {written} ticket notes to {outdir}"
+    if skip_existing:
+        msg += f" (skipped {skipped} already-existing)"
+    print(msg)
     return 0
 
 
