@@ -1,0 +1,8 @@
+# Normalize all text to LF in the repository for cross-platform use.
+* text=auto eol=lf
+
+# Scripts must keep LF endings so they run on Mac and Linux.
+*.sh text eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.json text eol=lf

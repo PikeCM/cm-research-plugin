@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "cm-research",
+  "description": "CloudMasonry project-research marketplace: ingest project sources into Obsidian and generate research.",
+  "owner": {
+    "name": "CloudMasonry"
+  },
+  "plugins": [
+    {
+      "name": "cm-research-plugin",
+      "description": "Ingest project data (documents, spreadsheets, Jira) into Obsidian as Markdown notes, then generate structured project research against a standard template.",
+      "source": "./plugins/cm-research-plugin",
+      "category": "productivity"
+    }
+  ]
+}
