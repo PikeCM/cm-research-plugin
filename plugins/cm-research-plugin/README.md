@@ -7,6 +7,7 @@ Ingest project sources into an Obsidian workspace and generate structured resear
    - `ingest-document` for `.docx` / `.pdf`
    - `ingest-spreadsheet` for `.csv` / `.xls` / `.xlsx`
    - `ingest-jira` for Jira tickets (via the Atlassian MCP connector)
+   - `ingest-slack` for Slack channels/threads (via the Slack MCP connector)
 2. **Generate research** with `generate-research`, which synthesizes the source notes into `<project>/<project> - Research.md` using a standard template.
 
 Notes carry frontmatter (source type, origin, ingest date) and cross-link with `[[wikilinks]]` so the workspace is navigable in Obsidian.
@@ -24,4 +25,4 @@ bash "${CLAUDE_PLUGIN_ROOT}/scripts/setup-toolchain.sh"
 Installs a local Python environment (pandas, openpyxl, xlrd, python-docx, pypdf, tabulate) for document and spreadsheet conversion. Jira ingestion needs no local toolchain; it uses the Atlassian MCP connector.
 
 ## Future sources
-Granola and Slack are planned, also via their existing MCP connectors rather than custom API code.
+Granola ingestion is planned, via its MCP connector (needs authentication first).

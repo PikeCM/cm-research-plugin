@@ -10,6 +10,7 @@ Build a local, Obsidian-based research workspace for a project. Ingest source ma
 - **ingest-document** - convert a `.docx` or `.pdf` into a Markdown source note.
 - **ingest-spreadsheet** - convert a `.csv`, `.xls`, or `.xlsx` into Markdown tables.
 - **ingest-jira** - pull Jira tickets via the Atlassian MCP connector into Markdown notes.
+- **ingest-slack** - pull Slack channels/threads via the Slack MCP connector into Markdown notes.
 - **generate-research** - synthesize the ingested notes into a research document using a standard template.
 
 ### Why Markdown
