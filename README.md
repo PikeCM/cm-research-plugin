@@ -12,6 +12,7 @@ Build a local, Obsidian-based research workspace for a project. Ingest source ma
 - **ingest-jira** - pull Jira tickets via the Atlassian MCP connector into Markdown notes.
 - **ingest-slack** - pull Slack channels/threads via the Slack MCP connector into Markdown notes.
 - **ingest-granola** - search Granola meeting notes via the Granola MCP connector and pull them into Markdown notes.
+- **ingest-apex** - parse a Salesforce Apex codebase (`.cls` / `.trigger`) into structural notes (declaration, methods, SOQL/sObjects, DML, dependencies) with one note per class plus domain clusters and an architecture index. Structural metadata only; no raw source embedded. Pure standard library, no toolchain.
 - **generate-research** - synthesize the ingested notes into a research document using a standard template, also reusing prior research notes as derived datapoints.
 
 ### Why Markdown

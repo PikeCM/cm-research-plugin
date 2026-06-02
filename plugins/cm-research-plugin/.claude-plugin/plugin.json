@@ -1,6 +1,6 @@
 {
   "name": "cm-research-plugin",
-  "description": "Build a local, Obsidian-based project research workspace. Ingests documents (docx/pdf), spreadsheets (csv/xls/xlsx), and Jira tickets into Markdown notes with frontmatter and wikilinks, then generates structured research against a standard template. Local-first; uses existing MCP connectors for Jira (and later Granola, Slack).",
+  "description": "Build a local, Obsidian-based project research workspace. Ingests documents (docx/pdf), spreadsheets (csv/xls/xlsx), Jira tickets, and Salesforce Apex codebases into Markdown notes with frontmatter and wikilinks, then generates structured research against a standard template. Local-first; uses existing MCP connectors for Jira (and later Granola, Slack).",
   "version": "0.1.0",
   "author": {
     "name": "CloudMasonry"
@@ -12,6 +12,7 @@
     "jira",
     "documents",
     "spreadsheets",
-    "salesforce"
+    "salesforce",
+    "apex"
   ]
 }
